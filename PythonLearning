@@ -1,0 +1,285 @@
+Python
+
+methods and funtions
+
+method
+	methods are specific to object
+	all methods are accessed by .
+	
+function
+	functions are common for all objects
+	
+	len()
+	range()
+	dir()
+	help()
+	zip()
+	open()
+	sum()
+	min()
+	max()
+	input()
+	
+	typecasting
+	int()
+	dict()
+	set()
+	list()
+	tuple()
+	float()
+	hex()
+	str()
+	oct()
+	
+	
+operators
++ - * / %
+
+
+logical operators
+and or not
+
+
+relational operators
+< > <= >= == !=
+
+
+assignment operators (++ and -- are not allowed)
+
+val = 10
+val += 10		>	val = val + 10
+
+
+special operators
+in		>	if 'python' in 'python program'
+as
+
+
+
+range
+
+list(range(9))
+list(range(1,10))
+list(range(1,10,2))
+list(range(10,0,-1))
+
+
+
+for loop
+
+for val in range(1,10):
+	print(val)
+	
+alist = ["abc,", "xyz", "sdf"]
+for val in alist:
+	print(val)
+
+adict = {1:"abc,", 2:"xyz", 3:"sdf"}
+for key in adict:
+	print(key)
+	print(adict[key])
+
+
+
+
+
+
+from pynput.keyboard import Key, Listener
+
+
+
+
+
+with Listener(on_press=on_press) as listener :
+	listener.join()
+
+
+
+
+--------------------------------------------------------------------
+file handling
+
+
+working with flat fine (.csv, .txt, .conf, .log)
+
+syntax	:	object = open(filename, mode)
+eg		:	fobj   = open("abc.txt", "r")	>	read mode
+eg		:	fobj   = open("abc.txt", "w")	>	write mode
+													if file exists, it will overwrite
+													if file NOT exists, it will create
+eg		:	fobj   = open("abc.txt", "a")	>	append mode
+													if file exists, it will append
+													if file NOT exists, it will create
+
+			fobj   = open("C:\\abc.txt", "r")
+			fobj   = open("C:/abc.txt", "r")
+			fobj   = open(r"C:\abc.txt", "r")
+			
+closing file
+	fobj.close()
+
+
+reading file
+	reading line by line
+	reading at a time
+	reading using csv library
+	reading using pandas library
+	
+	
+writing file
+	normal way	(if NOT closed nothing will be written to file & it stays in buffer)
+		fobj = open("C:\\abc.txt", "w")
+		fobj.write("asfdsf")
+		fobj.close()
+	
+	context manager	(no need to close & indentation needed)
+		with open("C:\\abc.txt", "w") as fobj:
+			fobj.write("asadfsfdsf")
+	
+	
+------------------------------------------------------------------------------------------
+Exception
+
+errors
+	syntax error
+	runtime error
+	
+handling exception
+	try
+	except
+	else	>	optional
+	finally	>	optional
+	raise	>	optional
+		
+		
+------------------------------------------------------------------------------------------
+library
+
+importing all methods
+	import math
+	e.g.	print(math.log(3))
+
+importing with alias name
+	import math as m
+	e.g.	print(m.log(3))
+	
+importing required methods
+	from math import log, floor
+	e.g.	print(log(3))
+	
+importing everything without .
+	from math import *
+	e.g.	print(log(3))
+	
+
+two types of libraries
+	builtin libraries		>	installed by default
+	third party libraries	>	need to install based on requirement
+
+
+e.g.
+os			>	os level activities
+math		>	math operations
+sys			>	config data
+shutil		>	copy, move
+urllib		>	read web, download file
+logging		>	log events
+smtplib		>	send mail
+ftplib		>	perform ftp operations
+sysconfig	>	config data
+zipfile		>	create/extract zip files
+rarfilee	>	create/extract rar files
+tarfile		>	create/extract tar files
+filecmp		>	compare files or directories
+csv			>	work with csv files
+xml			>	work with xml files
+calender	>	calender
+datetime	>	date and time
+time		>	time
+fractions	>	math fractions
+glob		>	display all files
+heapq		>	array operations
+subprocess	>	system commands in python (subprocess.getouput("ls -lrt"))
+pdb			>	debugger
+platform	>	platform information
+random		>	similar to math.random
+re			>	grep, awk, sed
+socker		>	network programming
+stat		>	stats of file
+statistics	>	basic statistics
+crptography	>	encrypting/decrypting data/files
+	
+	
+installing and uninstall external library
+pip
+	pip install <libraryName>
+	pip install pymysql
+	pip install pymysql <= 0.8.1
+	pip uninstall <libraryName>
+	pip install -r abc.txt	(abc.txt file has all libraries)
+	pip list
+	pip list --oudated
+
+install manually
+	download tar file
+	unzip it
+	go to cmd
+		python setup.py install
+		
+easy_install tool
+
+------------------------------------------------------------------------------------------
+regular expression
+regex
+
+search - search the string anywhere
+match - search the string in beginning
+findall - all the occurance
+sub - substituting
+
+
+wildcards
+^	:	match at beginning
+		>	re.search("^python", line)
+$	:	match at end
+		>	re.search("python$", line)
+.	:	any singlel line
+		>	re.search(".ython", line)
+*	:	zero or more occurance of preceding char
+		>	re.search("pyt*hon", line)
++	:	one or more occurance of preceding char
+		>	re.search("pyt+hon", line)
+?	:	zero or one occurance of preceding char
+		>	re.search("pyt?hon", line)
+()	:	perl or python
+		>	re.search("perl|python", line)
+[]	:	any single character or digit or symbol
+		>	re.search("[sdfsdf]ython", line)
+{}	:	{min , max} occuranceof preceding character
+		>	re.search("pyt{2,5}on", line)
+	:	{min , max} occuranceof preceding character
+		>	re.search("pyt{2,5}on", line)
+		
+		
+		
+------------------------------------------------------------------------------------------
+oracle		>	cx_Oracle
+Mysql		>	pymysql
+db2			>	db2
+MongoDB		>	pymongo
+SQLServer	>	pymssql
+SQLite		>	sqlite3		>	python default db
+
+sql database
+show databases;
+create database jpmc;
+use jpmc;
+show tables;
+create table emp(name varchar(100), addr varchar(100));
+insert into emp values('ars', 'rnr')
+insert into emp values('amr', 'bdvt')
+select * from emp;
+
+
+https://notepad.pw/2fucyl0n
+017194
